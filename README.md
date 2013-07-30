@@ -1,4 +1,4 @@
-Use yor Prezi with Leap Motion controller
+Use your Prezi with Leap Motion controller
 ==========================================
 
 If you own a Leap Motion controller with this piece of code you can navigate through your Prezi with left/right swipe gestures.
