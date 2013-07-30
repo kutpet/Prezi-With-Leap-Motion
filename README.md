@@ -14,3 +14,9 @@ For example in the url http://prezi.com/7txrmkstwsze/free-fall-template/ the id 
 This is not a full featured client, but a prototype (proof of concept) developed just for fun.
 
 
+Credits
+========
+
+The client uses [prezi-player javascript API](http://prezi.github.io/prezi-player/lib/PreziPlayer/) for loading and controlling prezi and [leap.js](http://js.leapmotion.com/) to connect to Leap Motion controller. 
+
+
