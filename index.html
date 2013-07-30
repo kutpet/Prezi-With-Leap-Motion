@@ -5,19 +5,83 @@
 			<title></title>
 			<script src="http://js.leapmotion.com/0.2.0-beta6/leap.js"></script>
 			<script src="http://prezi.github.io/prezi-player/lib/PreziPlayer/prezi_player.js"></script>
-			<script src="controller.js"></script>
+			<script src="js/controller.js"></script>
+
+			<style>
+				#rightArrow {
+					display:inline-block;
+					width: 0px;
+					height: 0px;
+					border-style: solid;
+					border-width: 35px 0 35px 60.6px;
+					border-color: transparent transparent transparent #00aeff;
+					margin-bottom: 40px;
+				}
+
+				#leftArrow {
+					display:inline-block;
+					width: 0px;
+					height: 0px;
+					border-style: solid;
+					border-width: 35px 60.6px 35px 0;
+					border-color: transparent #00aeff transparent transparent;
+					margin-bottom: 40px;
+					
+				}
+
+				#leftArrow.active {
+   					-webkit-animation-name: pulseLeft;
+					-webkit-animation-duration: 2s;
+					-webkit-animation-iteration-count: 1;
+            	}
+
+            	#rightArrow.active {
+   					-webkit-animation-name: pulseRight;
+					-webkit-animation-duration: 2s;
+					-webkit-animation-iteration-count: 1;
+            	}
+
+				.controlContainer {
+    				text-align:center;
+				}
+
+				#message {
+					font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   					font-weight: 300;
+					text-align:center;
+				}
+
+				.image {
+    				display:inline-block;
+				}
+
+				@-webkit-keyframes pulseRight {
+					from { border-color: transparent transparent transparent #00aeff; }
+					50% { border-color: transparent transparent transparent #1111ff; }
+					to { border-color: transparent transparent transparent #00aeff; }
+				}
+
+				@-webkit-keyframes pulseLeft {
+					from { border-color: transparent #00aeff transparent transparent; }
+					50% { border-color: transparent #1111ff transparent transparent; }
+					to { border-color: transparent #00aeff transparent transparent; }
+				}
+
+			</style>
+
 		</head>
 
-		<body onload="initController();">
+		<body onload="initPlayer();">
 
-			<div id="prezi-player" class="player"></div>
+			<div id="prezi-player" class="player" style="width=100%; margin: 0 auto;"></div>
 
-			<div style="float: left;">
-				<span id="t-current-step">Page 0</span> of <span id="t-step-count">0</span>
+			<div class="controlContainer">
+				<div id="leftArrow"></div>
+				<img src="resources/leapMotion_small.png" class="image"/>
+				<div id="rightArrow"></div>
 			</div>
-			<div style="float: left;">
-				<span id="t-autoPlay"> - Auto play: off</span>
-			</div>
+
+			<div id="message" style ="text-align: center;"></div>
 		
 		</body>
 	</html>
