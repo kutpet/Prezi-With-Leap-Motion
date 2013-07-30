@@ -1,0 +1,23 @@
+<!doctype html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8" />
+			<title></title>
+			<script src="http://js.leapmotion.com/0.2.0-beta6/leap.js"></script>
+			<script src="http://prezi.github.io/prezi-player/lib/PreziPlayer/prezi_player.js"></script>
+			<script src="controller.js"></script>
+		</head>
+
+		<body onload="initController();">
+
+			<div id="prezi-player" class="player"></div>
+
+			<div style="float: left;">
+				<span id="t-current-step">Page 0</span> of <span id="t-step-count">0</span>
+			</div>
+			<div style="float: left;">
+				<span id="t-autoPlay"> - Auto play: off</span>
+			</div>
+		
+		</body>
+	</html>
