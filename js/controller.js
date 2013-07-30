@@ -9,7 +9,7 @@ var previousStep = 0;
 
 function initPlayer() { 
 
-
+	// set up click events for arrows in case Leap Motion is not available or offline
 	var leftArrow = document.getElementById('leftArrow');
 
 	leftArrow.style.cursor = 'pointer';
@@ -22,6 +22,9 @@ function initPlayer() {
 	rightArrow.onclick = function() {
     	player.nextStep();
 	};
+
+	// set inactive state for image of leap controller by default
+	toggleLeapImageState(false);
 
 	// get prezi ID from url parameter
 	var preziId = getUrlVars()["preziId"];
@@ -78,6 +81,7 @@ function startLeapController() {
 
 	leapController.on('connect', function() {
 
+		toggleLeapImageState(true);
 		printMessage("Swipe left/right to navigate in the Prezi.");
   	
 	  	Leap.loop({enableGestures: true}, function(frame) {
@@ -124,11 +128,13 @@ function startLeapController() {
 	leapController.on('deviceConnected', function() {
  		console.log("Leap controller has been connected.");
  		printMessage("Leap controller has been connected.");
+ 		toggleLeapImageState(true);
 	});
 
 	leapController.on('deviceDisconnected', function() {
   		console.log("Leap controller has been disconnected.");
-  		 printMessage("Leap controller has been disconnected.");
+  		printMessage("Leap controller has been disconnected.");
+  		toggleLeapImageState(false);
 	});
 
 	// start connection to Leap Motion
@@ -140,6 +146,13 @@ function toggleArrow(arrow)
 {
 	arrow.className = arrow.className==="active"?"":"active";
 
+};
+
+// helper function to toggle class of an arrow
+function toggleLeapImageState(active) 
+{
+	var lpImage = document.getElementById('lpImage');
+	lpImage.src = "resources/leapMotion_small"+(active?".png":"_inactive.png");
 };
 
 // helper to print out message below the prezi
