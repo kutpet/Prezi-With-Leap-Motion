@@ -65,7 +65,7 @@ function initPlayer() {
 	
 	player.on(PreziPlayer.EVENT_CURRENT_STEP, function(event) {
 		// update step counter
-		printMessage(event.value+" of "+player.getStepCount());
+		printMessage((event.value+1)+" of "+player.getStepCount());
 	});
 
 	player.on(PreziPlayer.EVENT_IS_MOVING, function(event) {
