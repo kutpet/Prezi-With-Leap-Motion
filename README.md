@@ -19,4 +19,8 @@ Credits
 
 The client uses [prezi-player javascript API](http://prezi.github.io/prezi-player/lib/PreziPlayer/) for loading and controlling prezi and [leap.js](http://js.leapmotion.com/) to connect to Leap Motion controller. 
 
+Credits
+========
+Code is MIT licensed, see LICENSE.txt.
+
 
